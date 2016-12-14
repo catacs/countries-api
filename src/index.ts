@@ -3,9 +3,11 @@ import * as debug from 'debug';
 
 import App from './app';
 
+const config = require('./config');
+
 debug('ts-express:server');
 
-const port = normalizePort(process.env.PORT || 3000);
+const port = normalizePort(process.env.PORT || config.port || 3000);
 App.set('port', port);
 
 const server = http.createServer(App);
