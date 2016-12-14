@@ -10,7 +10,12 @@ gulp.task('scripts', () => {
   return tsResult.js.pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', ['scripts'], () => {
+gulp.task('static', () => {
+  gulp.src("src/**/*.json")
+      .pipe(gulp.dest('dist'));
+});
+
+gulp.task('watch', ['scripts', 'static'], () => {
   gulp.watch('src/**/*.ts', ['scripts']);
 });
 
